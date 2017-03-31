@@ -21,7 +21,21 @@
 // countVowels('abcedfg') ->2
 
 var countVowels = function(str){
-
+  //declare count variable to keep track of the vowels num
+  //take the initial character in the string and check if the character is a vowel
+  var count = 0;
+  if (str[0] === 'a' || str[0] === 'e' || str[0] === 'i' || str[0] === 'o'|| str[0] === 'u') {
+      count = 1;
+      countVowels(str.slice(1, str.length));
+  } else {
+    countVowels(str.slice(1, str.length));
+  }
+    //if it is a vowel
+      //increase the count in the count variable
+    //if not,
+      //call the function on the rest of the string
+  //return the count variable
+  return count;
 };
 
 ///////////////////////////////////////////////////////////////////////
