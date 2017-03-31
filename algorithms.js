@@ -23,19 +23,18 @@
 var countVowels = function(str){
   //declare count variable to keep track of the vowels num
   //take the initial character in the string and check if the character is a vowel
-  var count = 0;
-  if (str[0] === 'a' || str[0] === 'e' || str[0] === 'i' || str[0] === 'o'|| str[0] === 'u') {
-      count = 1;
-      countVowels(str.slice(1, str.length));
+  if (str.length === 0) {
+    return 0;
+  } else if (str[0] === 'a' || str[0] === 'e' || str[0] === 'i' || str[0] === 'o'|| str[0] === 'u') {
+      return 1 + countVowels(str.slice(1, str.length));
   } else {
-    countVowels(str.slice(1, str.length));
+    return countVowels(str.slice(1, str.length));
   }
     //if it is a vowel
       //increase the count in the count variable
     //if not,
       //call the function on the rest of the string
   //return the count variable
-  return count;
 };
 
 ///////////////////////////////////////////////////////////////////////
@@ -49,7 +48,16 @@ var countVowels = function(str){
 // sumDigits(12) → 3
 
 var recursiveSum = function(n){
-
+  n = n.toString();
+  //base case: if no number is given,
+  if (n.length === 1) {
+    //return 0;
+    return Number(n);
+  } else {
+    return Number(n.charAt(0)) + recursiveSum(Number(n.slice(1, n.length)));
+  }
+  //otherwise, take the last number using modulo 10
+    //return that digit added with the recursion call
 };
 
 ///////////////////////////////////////////////////////////////////////
