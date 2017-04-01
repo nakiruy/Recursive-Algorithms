@@ -104,7 +104,17 @@ var invest = function(amount){
 //    printRangeUpDown(4, 10);
 //    console.logs: 4,5,6,7,8,9,10,9,8,7,6,5,4
 var printRangeUpDown = function(min, max){
-
+    //if the min and the max is the same,
+    if (min === max) {
+      console.log(min);
+    } else {
+      console.log(min) + printRangeUpDown(min + 1, max);
+    }
+      //console.log only the min
+    //if the range between min and max is a difference of 1
+      //console.log min, max, max, min
+    //otherwise,
+      //console.log min first and then call printRangeUpDown with min + 1, max
 };
 
 ///////////////////////////////////////////////////////////////////////
