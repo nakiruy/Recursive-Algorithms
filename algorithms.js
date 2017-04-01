@@ -128,10 +128,30 @@ var printRangeUpDown = function(min, max){
 // remember, binary tree's are different from binary search trees!
 // you'll need to create a binary tree constructor!
 
-var binaryTreeSum = function(tree){
-
+var BinaryTree = function(value) {
+  this.value = value;
+  this.left = null;
+  this.right = null;
 };
 
+var binaryTreeSum = function(tree){
+  var sum = tree.value;
+  if (tree.left !== null && tree.right !== null) {
+    return sum += binaryTreeSum(tree.left) + binaryTreeSum(tree.right);
+  } else if (tree.left !== null) {
+    return sum += binaryTreeSum(tree.left);
+  } else if (tree.right !== null) {
+    return sum += binaryTreeSum(tree.right);
+  } else {
+    return sum;
+  }
+};
+
+var sum = new BinaryTree(10);
+sum.left = new BinaryTree(7);
+sum.right = new BinaryTree(11);
+sum.left.left = new BinaryTree(2);
+console.log(binaryTreeSum(sum));
 ///////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////
@@ -139,6 +159,7 @@ var binaryTreeSum = function(tree){
 // Problem #7
 
 // Given an array of integers which is sorted in increasing order
+//[1,2,3,4,5,6,7,8,9]
 // build a binary search tree of minimal height. Height of a tree
 // is the max number of edges from a node to the tree's root node.
 // e.g. this tree has height 3.
@@ -152,5 +173,10 @@ var binaryTreeSum = function(tree){
 
 // you'll need to create a binary search tree constructor!
 var arrayToBinarySearchTree = function(array){
-
+  //create an empty binary tree with the first item of the array
+  var newTree = new BinaryTree(array[0]);
+  //run through each item of the array
+    //add the next integer
+  //return the new binarySearchTree
+  return newTree;
 };
