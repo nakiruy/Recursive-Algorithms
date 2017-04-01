@@ -108,7 +108,7 @@ var printRangeUpDown = function(min, max){
     if (min === max) {
       console.log(min);
     } else {
-      console.log(min) + printRangeUpDown(min + 1, max);
+      console.log(min) + printRangeUpDown(min + 1, max) + console.log(min);
     }
       //console.log only the min
     //if the range between min and max is a difference of 1
